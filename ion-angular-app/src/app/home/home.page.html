@@ -17,6 +17,9 @@
   </form>
   <hr>
   <h3>{{ loading ? 'Loading...  🤔🤔🤔' : '' }}</h3>
+  <div *ngIf="results && results.length > 0">
+    <div *ngFor="let r of results">{{r}}</div>
+  </div>
 <!--
   <a class="preview" *ngFor="let linkData of links" [href]="linkData.url">
     <div>

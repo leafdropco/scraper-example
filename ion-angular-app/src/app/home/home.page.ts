@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomePage {
 
-  private results:any[];
+  results:any[];
   loading = false;
   text = '';
 
