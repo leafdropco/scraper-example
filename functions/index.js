@@ -22,4 +22,4 @@ app.get('/posts/images/:instaPath', cors(), function (req, res, next) {
 })
 
 // Expose Express API as a single Cloud Function:
-exports.widgets = functions.https.onRequest(app);
+exports.widgets = functions.runWith({ memory: '1GB' }).https.onRequest(app);

@@ -9,7 +9,7 @@ class Insta {
     }
 
     async findPostImages() {
-        const browser = await puppeteer.launch({headless: true})
+        const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox']})
         const page = await browser.newPage()
         await page.goto(this.insta.url, {waitUntil: `networkidle0`});
         await page.waitForSelector('div.KL4Bh > img');
