@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomePage {
 
-  links;
+  private results:any[];
   loading = false;
   text = '';
 
@@ -19,15 +19,10 @@ export class HomePage {
 
     this.loading = true;
 
-    this.http.post(
-      'https://scraper-58e5f.firebaseapp.com/scraper',
-      JSON.stringify({ text: this.text })
-    )
-    .subscribe(res => {
-      this.links = res;
-      this.loading = false;
+    this.http.get(`https://us-central1-scraper-58e5f.cloudfunctions.net/widgets/posts/images/${this.text}`)
+    .subscribe((res:any[]) => {
+      this.results = res;
     });
-
 
   }
 
